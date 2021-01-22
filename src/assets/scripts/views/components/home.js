@@ -1,3 +1,5 @@
+import { carouselContainer } from "./containers/carouselContainer";
+
 export const home = () => {
   const template = `
   <h1>Rick And Morty</h1>
@@ -34,6 +36,7 @@ export const home = () => {
       </form>
     </div>
   </nav>
+  <section id="infoContainer">${carouselContainer()}</section>
   `;
   return template;
 };
