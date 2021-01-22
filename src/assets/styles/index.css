@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+/* Color variables */
+:root {
+  --light-yellow: #FAFD7CFF;
+  --brown: #82491EFF;
+  --marine-blue: #24325FFF;
+  --light-blue: #B7E4F9FF;
+  --red: #FB6467FF;
+  --dark-green: #526E2DFF;
+  --pink: #E762D7FF;
+  --orange: #E89242FF;
+  --clear-yellow: #FAE48BFF;
+  --aqua: #A6EEE6FF;
+  --light-brown: #917C5DFF;
+  --blue: #69C8ECFF;
+}
+
+body{
+  background: url("https://www.hdwallpaper.nu/wp-content/uploads/2018/11/rick_and_morty-2.jpg") no-repeat center fixed;
+  background-size: cover;
+  font-family: 'Creepster', cursive;
+}
+h1{
+  font-size: 5em;
+  font-family: 'Creepster', cursive;
+  text-shadow: 0.02em 0.02em 0.02em #7ffa67,
+            -0.02em -0.02em 0.02em #7ffa67,
+            0 0 0.2em #7ffa67;
+  animation: textShadow 2s linear infinite alternate;
+  text-align: center;
+}
+nav{
+  max-width: 80%;
+  margin-left: 10%;
+  background-color: var(--marine-blue);
+  text-decoration-color: var(--red);
+}
