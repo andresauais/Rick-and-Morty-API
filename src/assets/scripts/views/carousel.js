@@ -1,5 +1,5 @@
 
-export const carousel = () =>{
+export function carousel () {
   $('.carousel .carousel-item').each(function(){
   var minPerSlide = 3;
   var next = $(this).next();

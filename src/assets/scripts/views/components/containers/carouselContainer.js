@@ -1,3 +1,7 @@
+import { createList } from "../../../helpers/helpers";
+import { renderView } from "../../renderViews";
+import { episodes } from "./episodes";
+
 export const carouselContainer = () =>{
   const template = `
   <div id="episodesCarousel" class="carousel slide w-100" data-ride="carousel">

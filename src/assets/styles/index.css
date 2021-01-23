@@ -19,6 +19,8 @@ body{
   background: url("https://www.hdwallpaper.nu/wp-content/uploads/2018/11/rick_and_morty-2.jpg") no-repeat center fixed;
   background-size: cover;
   font-family: 'Creepster', cursive;
+  max-width: 80%;
+  margin-left: 10%;
 }
 h1{
   font-size: 5em;
@@ -30,15 +32,18 @@ h1{
   text-align: center;
 }
 nav{
-  max-width: 80%;
-  margin-left: 10%;
   background-color: var(--marine-blue);
   text-decoration-color: var(--red);
 }
 #infoContainer{
-  max-width: 80%;
-  margin-left: 10%;
   margin-top: 5%;
+}
+h2{
+  font-size: 2em;
+  color: #FAFD7CFF;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  margin-left: 2%;
 }
 @media (max-width: 768px) {
   .carousel-inner .carousel-item > div {

@@ -9,13 +9,13 @@ export const home = () => {
         Seasons
       </p>
       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <p class="dropdown-item">Season 1</p>
+        <p class="dropdown-item" data-value="Season 1">Season 1</p>
         <div class="dropdown-divider"></div>
-        <p class="dropdown-item">Season 2</p>
+        <p class="dropdown-item" data-value="Season 2">Season 2</p>
         <div class="dropdown-divider"></div>
-        <p class="dropdown-item">Season 3</p>
+        <p class="dropdown-item" data-value="Season 3">Season 3</p>
         <div class="dropdown-divider"></div>
-        <p class="dropdown-item">Season 4</p>
+        <p class="dropdown-item" data-value="Season 4">Season 4</p>
       </div>
     </li>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,11 +23,11 @@ export const home = () => {
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="#">Characters</a>
+        <li class="nav-item" data-value="characters">
+          <a class="nav-link" href="#">characters</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Locations</a>
+        <li class="nav-item" data-value="locations">
+          <a class="nav-link" href="#">locations</a>
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
@@ -36,6 +36,7 @@ export const home = () => {
       </form>
     </div>
   </nav>
+  <h2 id="seasonTitle"></h2>
   <section id="infoContainer">${carouselContainer()}</section>
   `;
   return template;

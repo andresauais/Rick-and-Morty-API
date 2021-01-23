@@ -1,5 +1,5 @@
-import { carousel } from '../views/carousel';
+import { changeSeason } from "../store/store";
 
 export const addEventListners = () =>{
-  $(document).off().find('*').off();
+  changeSeason();
 }

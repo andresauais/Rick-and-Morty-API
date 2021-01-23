@@ -21,8 +21,9 @@ export const getLocations = (locationId) => {
   return axios.get(`${url}location/${locationId}`);
 }
 
-export const getAll = () =>{
-  axios.all([getEpisodes(1), getEpisodes(2), getEpisodes(3)]).then((res)=>{
-    console.log(res[0].data.characters[0]);
-  })
+export const getAll = (option) => {
+  return axios.get(url + option);
 }
+  // axios.all([getEpisodes(1), getEpisodes(2), getEpisodes(3)]).then((res)=>{
+  //   console.log(res[0].data.characters[0]);
+  // })
