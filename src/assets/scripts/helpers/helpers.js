@@ -1,7 +1,11 @@
 import axios from 'axios';
 import { carousel } from '../views/carousel';
+import { carouselContainer } from '../views/components/containers/carouselContainer';
 import { episodes } from '../views/components/containers/episodes';
 import { renderView } from '../views/renderViews';
+import { loadCharacterInfo, loadEpisode } from "../store/store";
+import { getCharacters } from '../API request/get';
+import { characters } from '../views/components/containers/characters';
 
 export function filterResp (data, season, eArray) {
   data.results.forEach(element => {
@@ -10,7 +14,8 @@ export function filterResp (data, season, eArray) {
       eArray.push({
         number: episodeNumber,
         title: element.name,
-        date: element.air_date
+        date: element.air_date,
+        id: element.id
       });
     }
   });
@@ -20,9 +25,11 @@ export function filterResp (data, season, eArray) {
     });
   }
   else{
+    renderView(carouselContainer, "#infoContainer");
     renderView(createList(eArray, episodes), "#carouselInner");
     $(".carousel-item")[0].setAttribute("class", "carousel-item active");
     carousel();
+    $('.episode-card__button').on("click", loadEpisode);
   }
 }
 
@@ -33,3 +40,65 @@ export const createList = (data, component) => {
   });
   return fragment;
 };
+
+export const filterCharacters = (data, cArray) =>{
+  renderView(carouselContainer, "#infoContainer");
+  data.forEach(element =>{
+    getCharacters(element).then(resp =>{
+      cArray.push({
+        name: resp.data.name,
+        image: resp.data.image,
+        status: resp.data.status,
+        species: resp.data.species,
+        origin: resp.data.origin.name,
+        id: resp.data.id
+      });
+      renderView(createList(cArray, characters), "#carouselInner");
+      carousel();
+      $(".carousel-item")[0].setAttribute("class", "carousel-item active");
+      $(".characters-card__button").on("click", loadCharacterInfo);
+    })
+  })
+}
+
+export const filterCharactersResp = (data, allCharArray) =>{
+  data.results.forEach(elem =>{
+    allCharArray.push({
+      name: elem.name,
+      image: elem.image,
+      status: elem.status,
+      species: elem.species,
+      origin: elem.origin.name,
+      location: elem.location.name
+    })
+  })
+  if(data.info.next != null){
+    axios.get(data.info.next).then(resp =>{
+      filterCharactersResp(resp.data, allCharArray);
+    });
+  }
+  else{
+    console.log(allCharArray);
+    //TODO desplegar los personajes todavía no sé como
+  }
+}
+
+export const filterLocationsResp = (data, allLocArray) =>{
+  data.results.forEach(elem =>{
+    allLocArray.push({
+      name: elem.name,
+      type: elem.type,
+      dimension: elem.status,
+      residents: elem.residents.length
+    })
+  })
+  if(data.info.next != null){
+    axios.get(data.info.next).then(resp =>{
+      filterLocationsResp(resp.data, allLocArray);
+    });
+  }
+  else{
+    console.log(allLocArray);
+    //TODO desplegar los personajes todavía no sé como
+  }
+}

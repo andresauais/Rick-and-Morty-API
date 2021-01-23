@@ -36,8 +36,13 @@ export const home = () => {
       </form>
     </div>
   </nav>
-  <h2 id="seasonTitle"></h2>
-  <section id="infoContainer">${carouselContainer()}</section>
+  <nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><p href="#" id="seasonTitle"></p></li>
+  </ol>
+</nav>
+  <section id="episodeInfoContainer"></section>
+  <section id="infoContainer"></section>
   `;
   return template;
 };

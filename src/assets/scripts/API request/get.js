@@ -13,10 +13,16 @@ export const getEpisodes = (episode) => {
   return axios.get(`${url}episode/${episode}`);
 }
 
-export const getCharacters = (characterId) => {
-  return axios.get(`${url}character/${characterId}`);
+// export const getCharacters = (characterId) => {
+//   return axios.get(`${url}character/${characterId}`);
+// }
+export const getCharacters = (characterUrl) => {
+  return axios.get(characterUrl);
 }
 
+export const getCharacter = (character) => {
+  return axios.get(`${url}character/${character}`);
+}
 export const getLocations = (locationId) => {
   return axios.get(`${url}location/${locationId}`);
 }

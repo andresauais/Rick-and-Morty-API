@@ -1,10 +1,12 @@
-import { getAll, getEpisodes, getInfo } from "../API request/get";
-import { filterResp, createList } from "../helpers/helpers";
+import { getAll, getCharacters, getEpisodes, getInfo, getCharacter } from "../API request/get";
+import { filterResp, createList, filterCharacters, filterCharactersResp, filterLocationsResp } from "../helpers/helpers";
 import { episodes } from "../views/components/containers/episodes";
 import { home } from "../views/components/home";
 import { renderView } from "../views/renderViews";
 import { carouselContainer } from "../views/components/containers/carouselContainer"
-
+import { episodeinfo } from "../views/components/containers/episodeinfo";
+import { characters } from "../views/components/containers/characters";
+import { characterinfo } from "../views/components/containers/characterinfo";
 export const homeApp = () => {
   renderView(home);
 };
@@ -34,17 +36,35 @@ export const changeSeason = () =>{
       }
     );
   });
+
   $(".nav-link").on("click", (e)=>{
     switch(e.target.innerText){
       case "characters":
-        const charactersInfo = getAll("character");
-        console.log(charactersInfo);
+        getAll("character").then(resp =>{
+          var allCharArray = [];
+          filterCharactersResp(resp.data, allCharArray);
+        })
         break;
       case "locations":
-        const locationsInfo = getAll("location");
-        console.log(locationsInfo);
+        getAll("location").then(resp=>{
+          var allLocationArray = []
+          filterLocationsResp(resp.data, allLocationArray);
+        })
         break;
     }
   })
 }
 
+export const loadEpisode = e => {
+  getEpisodes(e.currentTarget.id).then(resp=>{
+    renderView(episodeinfo(resp.data), "#episodeInfoContainer");
+    var cArray = [];
+    filterCharacters(resp.data.characters, cArray);
+  })
+}
+
+export const loadCharacterInfo = e =>{
+  getCharacter(e.target.id).then(resp =>{
+    renderView(characterinfo(resp.data), "#episodeInfoContainer");
+  })
+}
