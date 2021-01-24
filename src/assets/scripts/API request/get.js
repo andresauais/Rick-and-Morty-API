@@ -12,6 +12,9 @@ export const getInfo = () =>{
 export const getEpisodes = (episode) => {
   return axios.get(`${url}episode/${episode}`);
 }
+export const getEpisode = (episodeUrl) => {
+  return axios.get(episodeUrl);
+}
 
 // export const getCharacters = (characterId) => {
 //   return axios.get(`${url}character/${characterId}`);

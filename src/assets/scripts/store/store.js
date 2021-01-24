@@ -1,5 +1,5 @@
 import { getAll, getCharacters, getEpisodes, getInfo, getCharacter } from "../API request/get";
-import { filterResp, createList, filterCharacters, filterCharactersResp, filterLocationsResp } from "../helpers/helpers";
+import { filterResp, createList, filterCharacters, filterCharactersResp, filterLocationsResp, filterEpisodes } from "../helpers/helpers";
 import { episodes } from "../views/components/containers/episodes";
 import { home } from "../views/components/home";
 import { renderView } from "../views/renderViews";
@@ -14,6 +14,7 @@ export const homeApp = () => {
 export const changeSeason = () =>{
   $(".dropdown-item").on("click", (e)=>{
     $('#seasonTitle').text(e.target.innerText);
+    $('#episodeInfoContainer').empty();
       getAll("episode").then(resp =>{
         switch(e.target.innerText){
           case "Season 1":
@@ -66,5 +67,7 @@ export const loadEpisode = e => {
 export const loadCharacterInfo = e =>{
   getCharacter(e.target.id).then(resp =>{
     renderView(characterinfo(resp.data), "#episodeInfoContainer");
+    //TODO fix this
+    filterEpisodes(resp.data.episode, []);
   })
 }

@@ -70,6 +70,11 @@ h2{
     .carousel-inner .carousel-item-prev {
       transform: translateX(-33.333%);
     }
+
+    .character-card-info__info{
+      margin-top: 12.5%;
+      max-width: 50%;
+    }
 }
 
 .carousel-inner .carousel-item-right,
@@ -80,4 +85,14 @@ h2{
 #episodeInfoContainer{
   background-color: var(--aqua);
   text-align: center;
+}
+
+#characterCardInfo{
+  max-width: 50%;
+  text-align: center;
+  margin-left: 25%;
+}
+
+.character-card-info__img{
+  max-width: 50%;
 }

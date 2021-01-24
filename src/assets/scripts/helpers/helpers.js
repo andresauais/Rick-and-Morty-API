@@ -4,7 +4,7 @@ import { carouselContainer } from '../views/components/containers/carouselContai
 import { episodes } from '../views/components/containers/episodes';
 import { renderView } from '../views/renderViews';
 import { loadCharacterInfo, loadEpisode } from "../store/store";
-import { getCharacters } from '../API request/get';
+import { getCharacters, getEpisode } from '../API request/get';
 import { characters } from '../views/components/containers/characters';
 
 export function filterResp (data, season, eArray) {
@@ -15,7 +15,8 @@ export function filterResp (data, season, eArray) {
         number: episodeNumber,
         title: element.name,
         date: element.air_date,
-        id: element.id
+        id: element.id,
+        episode: element.episode
       });
     }
   });
@@ -101,4 +102,24 @@ export const filterLocationsResp = (data, allLocArray) =>{
     console.log(allLocArray);
     //TODO desplegar los personajes todavía no sé como
   }
+}
+
+export const filterEpisodes = (data, episodesArray) =>{
+  renderView(carouselContainer, "#infoContainer");
+  data.forEach(element =>{
+    getEpisode(element).then(resp =>{
+      var episodeNumber = parseInt(resp.data.episode.substring(4,6));
+      episodesArray.push({
+        number: episodeNumber,
+        title: resp.data.name,
+        date: resp.data.air_date,
+        id: resp.data.id,
+        episode: resp.data.episode
+      });
+      renderView(createList(episodesArray, episodes), "#carouselInner");
+      carousel();
+      $(".carousel-item")[0].setAttribute("class", "carousel-item active");
+      $('.episode-card__button').on("click", loadEpisode);
+    })
+  })
 }
