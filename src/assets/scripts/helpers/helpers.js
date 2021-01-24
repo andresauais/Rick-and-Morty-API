@@ -3,7 +3,7 @@ import { carousel } from '../views/carousel';
 import { carouselContainer } from '../views/components/containers/carouselContainer';
 import { episodes } from '../views/components/containers/episodes';
 import { renderView } from '../views/renderViews';
-import { loadCharacterInfo, loadEpisode } from "../store/store";
+import { loadCharacterInfo, loadEpisode, loadLocationInfo } from "../store/store";
 import { getCharacters, getEpisode } from '../API request/get';
 import { characters } from '../views/components/containers/characters';
 
@@ -58,6 +58,7 @@ export const filterCharacters = (data, cArray) =>{
       carousel();
       $(".carousel-item")[0].setAttribute("class", "carousel-item active");
       $(".characters-card__button").on("click", loadCharacterInfo);
+      $(".origin-info").on("click", loadLocationInfo);
     })
   })
 }
@@ -79,7 +80,6 @@ export const filterCharactersResp = (data, allCharArray) =>{
     });
   }
   else{
-    console.log(allCharArray);
     //TODO desplegar los personajes todavía no sé como
   }
 }
@@ -87,10 +87,12 @@ export const filterCharactersResp = (data, allCharArray) =>{
 export const filterLocationsResp = (data, allLocArray) =>{
   data.results.forEach(elem =>{
     allLocArray.push({
+      id: elem.id,
       name: elem.name,
       type: elem.type,
       dimension: elem.status,
-      residents: elem.residents.length
+      residents: elem.residents,
+      numberResidents: elem.residents.length
     })
   })
   if(data.info.next != null){
@@ -99,7 +101,6 @@ export const filterLocationsResp = (data, allLocArray) =>{
     });
   }
   else{
-    console.log(allLocArray);
     //TODO desplegar los personajes todavía no sé como
   }
 }

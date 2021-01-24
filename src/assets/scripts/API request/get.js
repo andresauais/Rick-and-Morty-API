@@ -29,6 +29,9 @@ export const getCharacter = (character) => {
 export const getLocations = (locationId) => {
   return axios.get(`${url}location/${locationId}`);
 }
+export const getLocation = (locationUrl) => {
+  return axios.get(locationUrl);
+}
 
 export const getAll = (option) => {
   return axios.get(url + option);

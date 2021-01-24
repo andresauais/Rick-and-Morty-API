@@ -1,4 +1,4 @@
-import { getAll, getCharacters, getEpisodes, getInfo, getCharacter } from "../API request/get";
+import { getAll, getCharacters, getEpisodes, getInfo, getCharacter, getLocation, getLocations } from "../API request/get";
 import { filterResp, createList, filterCharacters, filterCharactersResp, filterLocationsResp, filterEpisodes } from "../helpers/helpers";
 import { episodes } from "../views/components/containers/episodes";
 import { home } from "../views/components/home";
@@ -7,6 +7,7 @@ import { carouselContainer } from "../views/components/containers/carouselContai
 import { episodeinfo } from "../views/components/containers/episodeinfo";
 import { characters } from "../views/components/containers/characters";
 import { characterinfo } from "../views/components/containers/characterinfo";
+import { location } from "../views/components/containers/location";
 export const homeApp = () => {
   renderView(home);
 };
@@ -67,7 +68,22 @@ export const loadEpisode = e => {
 export const loadCharacterInfo = e =>{
   getCharacter(e.target.id).then(resp =>{
     renderView(characterinfo(resp.data), "#episodeInfoContainer");
-    //TODO fix this
+    $(".origin-info").on("click", loadLocationInfo);
     filterEpisodes(resp.data.episode, []);
+  })
+}
+
+export const loadLocationInfo = e =>{
+  getAll("location").then(resp=>{
+    var allLocationArray = []
+    filterLocationsResp(resp.data, allLocationArray);
+    allLocationArray.forEach(elem =>{
+      if(e.target.innerText == elem.name){
+        getLocations(elem.id).then(resp =>{
+          renderView(location(resp.data), "#episodeInfoContainer");
+          filterCharacters(resp.data.residents, []);
+        })
+      }
+    })
   })
 }
