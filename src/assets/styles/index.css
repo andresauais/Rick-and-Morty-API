@@ -96,3 +96,22 @@ h2{
 .character-card-info__img{
   max-width: 50%;
 }
+
+#episodesCarousel{
+  margin-bottom: 10%;
+}
+
+.characters-card{
+  margin-left: 10%;
+  max-width: 90%;
+}
+
+.card-body{
+  text-align: center;
+}
+
+button{
+  background: var(--dark-green);
+  color: var(--light-yellow);
+  margin-top: 10%;
+}
