@@ -5,7 +5,7 @@ export const episodes = ({number,title, date, id, episode}) => {
         <div class="card card-body">
           <p class="episode-card__number">${number} (${episode})</p>
           <p class="episode-card__title">${title}</p>
-          <p class="episode-card__date">${date}</p>
+          <p class="episode-card__date text-muted">${date}</p>
           <button class="episode-card__button" id="${id}">More Info</button>
         </div>
     </div>

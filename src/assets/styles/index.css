@@ -108,10 +108,33 @@ h2{
 
 .card-body{
   text-align: center;
+  position: relative;
+  min-height: 145px;
 }
 
-button{
+.episode-card__button{
   background: var(--dark-green);
   color: var(--light-yellow);
-  margin-top: 10%;
+  position: absolute;
+  bottom: 0;
+  padding: 10px;
+  margin-left: 18%;
+}
+
+.characters-card__button{
+  background: var(--dark-green);
+  color: var(--light-yellow);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin-left: 20%;
+  padding: 10px;
+}
+
+.episode-card__title{
+  margin-top: 5px;
+}
+
+.episode-card__date{
+  margin-top: 5px;
 }

@@ -7,7 +7,7 @@ export const characters = ({name, image, status, species, origin, id}) => {
           <div class="card-body">
             <h4>${name}</h4>
             <p class="origin-info">${origin}</p>
-            <p>${species} || ${status}</p>
+            <p class="text-muted">${species} || ${status}</p>
             <button class="characters-card__button" id="${id}">More Info</button>
           </div>
       </div>
