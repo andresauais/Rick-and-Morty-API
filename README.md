@@ -40,3 +40,9 @@ npm run start
 ## Authors ✒️
 
 * **Andrés Auais** - [andresauais](https://github.com/andresauais)
+
+## PPT 
+
+```
+https://docs.google.com/presentation/d/1C8u1cA8Xf4G0Q0AKr4_tXrKmXKEUdYSsXQRgzjJ7VcQ/edit?usp=sharing
+```

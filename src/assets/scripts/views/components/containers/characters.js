@@ -8,8 +8,8 @@ export const characters = ({name, image, status, species, origin, id}) => {
             <h4>${name}</h4>
             <p class="origin-info">${origin}</p>
             <p class="text-muted">${species} || ${status}</p>
-            <button class="characters-card__button" id="${id}">More Info</button>
           </div>
+          <button class="characters-card__button" id="${id}">More Info</button>
       </div>
     </div>
 </div>

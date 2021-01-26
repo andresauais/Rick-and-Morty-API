@@ -114,20 +114,11 @@ h2{
 .episode-card__button{
   background: var(--dark-green);
   color: var(--light-yellow);
-  position: absolute;
-  bottom: 0;
-  padding: 10px;
-  margin-left: 20%;
 }
 
 .characters-card__button{
   background: var(--dark-green);
   color: var(--light-yellow);
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  padding: 10px;
-  margin-left: 25%;
 }
 
 .episode-card__title{
