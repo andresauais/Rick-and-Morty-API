@@ -66,6 +66,7 @@ export const filterCharacters = (data, cArray) =>{
 export const filterCharactersResp = (data, allCharArray) =>{
   data.results.forEach(elem =>{
     allCharArray.push({
+      id: elem.id,
       name: elem.name,
       image: elem.image,
       status: elem.status,
@@ -80,7 +81,14 @@ export const filterCharactersResp = (data, allCharArray) =>{
     });
   }
   else{
-    //TODO desplegar los personajes todavía no sé como
+    renderView(carouselContainer, "#infoContainer");
+    renderView(createList(allCharArray, characters), "#carouselInner");
+    carousel();
+    $(".episodeInfoContainer").empty();
+    $(".carousel-item")[0].setAttribute("class", "carousel-item active");
+    $(".characters-card__button").on("click", loadCharacterInfo);
+    $(".origin-info").on("click", loadLocationInfo);
+    $(".characters-card__button").on("click", loadCharacterInfo);
   }
 }
 

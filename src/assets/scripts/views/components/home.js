@@ -1,5 +1,3 @@
-import { carouselContainer } from "./containers/carouselContainer";
-
 export const home = () => {
   const template = `
   <h1>Rick And Morty</h1>
@@ -36,11 +34,11 @@ export const home = () => {
       </form>
     </div>
   </nav>
-  <nav aria-label="breadcrumb">
+  <!-- <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><p href="#" id="seasonTitle"></p></li>
   </ol>
-</nav>
+</nav> -->
   <section id="episodeInfoContainer"></section>
   <section id="infoContainer"></section>
   `;

@@ -102,8 +102,7 @@ h2{
 }
 
 .characters-card{
-  margin-left: 10%;
-  max-width: 90%;
+  max-width: 100%;
 }
 
 .card-body{
@@ -118,7 +117,7 @@ h2{
   position: absolute;
   bottom: 0;
   padding: 10px;
-  margin-left: 18%;
+  margin-left: 20%;
 }
 
 .characters-card__button{
@@ -127,8 +126,8 @@ h2{
   position: absolute;
   bottom: 0;
   left: 0;
-  margin-left: 20%;
   padding: 10px;
+  margin-left: 25%;
 }
 
 .episode-card__title{
